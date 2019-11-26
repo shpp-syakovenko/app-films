@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 const HomeView = ({
 }) => {
   return (
-    <div className="home">home</div>
+    <div className="home">
+      home
+    </div>
   );
 };
 
