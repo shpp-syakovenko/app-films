@@ -31,8 +31,19 @@ class Header extends React.Component {
     })
   };
 
-  closeMenu = () => {
+  // Close menu if click outside menu
+  closeMenu = (event) => {
+    if(!event.target.closest('.menu')){
+        const{ menu } = this.state;
+        const newMenu = menu.map((item) => { return  {...item, isOpen: false}});
+        this.setState({
+          menu: newMenu
+        })
+    }
+  };
 
+  submitSearch = (formData) => {
+    console.log(formData);
   };
 
   componentDidMount() {
@@ -49,6 +60,7 @@ class Header extends React.Component {
       <HeaderView dropMenu={dropMenu}
                   toggleDropMenu={this.toggleDropMenu}
                   menu={menu}
+                  submitSearch={this.submitSearch}
       />
     );
   }

@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import logo from '../../../assets/images/logo.png';
-import DropMenu from "./components/DropMenu";
+import DropMenu from './components/DropMenu';
+import FormSearch from './components/FormSearch';
 
-const HeaderView = ({toggleDropMenu, menu}) => {
+const HeaderView = ({toggleDropMenu, menu, submitSearch}) => {
 
   return (
     <div className="header">
@@ -28,10 +29,10 @@ const HeaderView = ({toggleDropMenu, menu}) => {
         </ul>
       </div>
       <div className="search">
-        search
+        <FormSearch onSubmit={submitSearch}/>
       </div>
       <div className="auth">
-        auth
+        <button>Войти</button>
       </div>
 
     </div>
@@ -40,12 +41,14 @@ const HeaderView = ({toggleDropMenu, menu}) => {
 
 HeaderView.propTypes = {
   toggleDropMenu: PropTypes.func,
-  menu: PropTypes.arrayOf(PropTypes.object)
+  menu: PropTypes.arrayOf(PropTypes.object),
+  submitSearch: PropTypes.func
 };
 
 HeaderView.defaultProps = {
   toggleDropMenu: undefined,
-  menu: []
+  menu: [],
+  submitSearch: undefined
 };
 
 export default HeaderView;
